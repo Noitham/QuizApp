@@ -22,21 +22,21 @@ public class StartAppActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        instanciate();
+        initialize();
         instantiateListener();
         setListeners();
 
     }
 
-    public void instanciate() {
+    public void initialize() {
         button1 = (Button) findViewById(R.id.startAppButton);
     }
 
+    //Method that will initialize the listener of the button
     public void instantiateListener() {
         listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
                 switch (v.getId()) {
                     case R.id.startAppButton:
                         callActivity();
@@ -46,10 +46,12 @@ public class StartAppActivity extends AppCompatActivity {
         };
     }
 
+    //We set the listener to our button
     public void setListeners() {
         button1.setOnClickListener(listener);
     }
 
+    //Method for calling the MainActivity
     public void callActivity() {
         startActivity(new Intent(StartAppActivity.this, MainActivity.class));
     }
